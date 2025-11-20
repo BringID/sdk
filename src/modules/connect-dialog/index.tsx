@@ -12,7 +12,8 @@ import { useMessageProxy } from '@/hooks'
 const ConnectDialog: FC<TProps> = ({
   visible,
   setVisible,
-  iframeOnLoad
+  iframeOnLoad,
+  connectUrl = 'https://connect.bringid.org'
 }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   useMessageProxy(iframeRef);
@@ -20,7 +21,7 @@ const ConnectDialog: FC<TProps> = ({
   const iframeSrc =
     typeof window === "undefined"
       ? ""
-      : `https://connect.bringid.org?url=${encodeURIComponent(
+      : `${connectUrl}?url=${encodeURIComponent(
           window.location.href
         )}`;
 
