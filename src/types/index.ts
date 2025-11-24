@@ -1,5 +1,16 @@
 import TSemaphoreProof from "./semaphore-proof"
+import TExtensionStatus from './extension-status'
+
+import TErrorType from "./error-type"
+import TRequestType from "./request-type"
+import TRequest from './request'
+import TResponse from './response'
 
 export {
-  TSemaphoreProof
+  TSemaphoreProof,
+  TExtensionStatus,
+  TErrorType,
+  TRequestType,
+  TRequest,
+  TResponse
 }
