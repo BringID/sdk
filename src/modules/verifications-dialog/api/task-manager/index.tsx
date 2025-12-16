@@ -23,7 +23,7 @@ const addVerification: TAddVerification = async (
     `${apiUrl}/v1/task-manager/${networkName}/verification/tasks`,
     'POST',
     {
-      Authorization: `Bearer ${configs.ZUPLO_KEY}`,
+      Authorization: `Bearer ${configs.ZUPLO_API_KEY}`,
     },
     {
       registry: registry,
@@ -43,7 +43,7 @@ const getVerification: TGetVerification = async (taskId) => {
     `${configs.ZUPLO_API_URL}/v1/task-manager/${networkName}/verification/tasks/${taskId}`,
     'GET',
     {
-      Authorization: `Bearer ${configs.ZUPLO_KEY}`,
+      Authorization: `Bearer ${configs.ZUPLO_API_KEY}`,
     },
   );
 };

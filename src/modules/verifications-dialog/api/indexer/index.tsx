@@ -26,7 +26,7 @@ const getProof: TGetProof = async (
     `${apiUrl}/v1/indexer/${networkName}/proofs?${queryParams}`,
     'GET',
     {
-      Authorization: `Bearer ${configs.ZUPLO_KEY}`,
+      Authorization: `Bearer ${configs.ZUPLO_API_KEY}`,
     },
   );
 };
