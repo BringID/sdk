@@ -1,11 +1,12 @@
 const path = require('path')
 const webpack = require('webpack');
 require('dotenv').config();
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: "production",
   entry: "./src/index.ts",
-  target: "web",
+  target: ['web', 'es5'],
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, 'dist'),
@@ -40,6 +41,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.ZUPLO_API_KEY': JSON.stringify(process.env.ZUPLO_API_KEY),
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
     })
   ],
   module: {
@@ -62,9 +66,7 @@ module.exports = {
         test: /\.(css|scss)$/,
         // in the `src` directory
         use: [
-          {
-            loader: "style-loader",
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: { importLoaders: 1 },
