@@ -6,9 +6,13 @@ import Button from '../button'
 import configs from '../../configs'
 import { Icons, Tag } from '../../components'
 import { TTask, TVerification, TVerificationStatus } from '@/types'
-import { createQueryString, createSemaphoreIdentity, defineTaskPointsRange, getOAuthSemaphoreData } from '@/utils'
+import {
+  createSemaphoreIdentity,
+  defineTaskPointsRange,
+  getOAuthSemaphoreData,
+  getZKTLSSemaphoreData
+} from '@/utils'
 import getConfigs from '@/configs/mode-configs'
-import { tasks } from '@/core'
 import { taskManagerApi } from '@/modules/verifications-dialog/api'
 import { addVerification } from '@/modules/verifications-dialog/store/reducers/verifications'
 import { useDispatch } from 'react-redux'
@@ -53,9 +57,8 @@ const defineTaskContent = (
                     group,
                     semaphoreIdentity,
                     modeConfigs.REGISTRY
-                  ) : await getOAuthSemaphoreData(
+                  ) : await getZKTLSSemaphoreData(
                     task,
-                    group,
                     semaphoreIdentity,
                     modeConfigs.REGISTRY
                   ) 

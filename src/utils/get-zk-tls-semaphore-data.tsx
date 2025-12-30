@@ -20,9 +20,6 @@ const getZKTLSSemaphoreData: TGetZKTLSSemaphoreData = (
 
   return new Promise((resolve, reject) => {
     const handler = async (event: MessageEvent) => {
-      console.log({ event, AUTH_DOMAIN: configs.AUTH_DOMAIN })
-      if (event.origin !== configs.AUTH_DOMAIN) return
-
       if (event.data?.type === "VERIFICATION_DATA_READY") {
         const {
           transcriptRecv,
